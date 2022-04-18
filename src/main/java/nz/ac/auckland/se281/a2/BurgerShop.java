@@ -32,7 +32,7 @@ public class BurgerShop {
 		Burger burger = new Burger(name, price);
 
 		// adding burger instance to cart
-		this.cart.add(burger);
+		cart.add(burger);
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class BurgerShop {
 		Snack snack = new Snack(name, price, size);
 
 		// adding snack to cart
-		this.cart.add(snack);
+		cart.add(snack);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class BurgerShop {
 		Drink drink = new Drink(name, price, size);
 
 		// adding drink to cart
-		this.cart.add(drink);
+		cart.add(drink);
 
 	}
 
@@ -135,8 +135,7 @@ public class BurgerShop {
 		// creating a new Combo instance with the above
 		Combo combo = new Combo(comboBurger, comboSnack, comboDrink);
 
-		// adding Combo instance to our cart
-		this.cart.add(combo);
+		cart.add(combo);
 
 	}
 
@@ -150,6 +149,14 @@ public class BurgerShop {
 	 */
 	public void removeItem(int posCart) {
 		// TODO TASK3
+
+		// prints error if posCart is invalid
+		if (posCart < 0 || posCart >= cart.size()) {
+			MessagesCLI.NOT_VALID_CART_POSITION.printMessage();
+		} else {
+			// removes the item in posCart position
+			cart.remove(posCart);
+		}
 	}
 
 	/**
@@ -157,6 +164,9 @@ public class BurgerShop {
 	 */
 	public void clearCart() {
 		// TODO TASK3
+
+		// removing all elements in cart
+		cart.clear();
 	}
 
 	/**
