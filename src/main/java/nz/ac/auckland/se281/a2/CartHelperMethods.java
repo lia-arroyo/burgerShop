@@ -3,11 +3,13 @@ package nz.ac.auckland.se281.a2;
 
 import java.util.ArrayList;
 
-//class declaration. This class will contain all the helper methods for printing cart
+// This class will contain all the helper methods for printing cart
 public abstract class CartHelperMethods {
 
+	// printing each item in given cart
 	public static void printEachItem(ArrayList<Item> cart) {
-		// iterating through and printing each item in cart
+
+		// iterating through cart
 		for (int i = 0; i < cart.size(); i++) {
 
 			// getting each item from cart
@@ -30,7 +32,29 @@ public abstract class CartHelperMethods {
 		}
 	}
 
-	public static void getTotal() {
+	public static float getTotalPrice(ArrayList<Item> cart) {
 
+		// initialising counter for current total
+		float total = 0;
+
+		// iterating through cart
+		for (int i = 0; i < cart.size(); i++) {
+
+			// getting each item from cart
+			Item item = cart.get(i);
+
+			total += item.getPrice();
+		}
+
+		return total;
+	}
+
+	public static void printTotalPrice(ArrayList<Item> cart) {
+
+		// getting total price for order
+		float totalPrice = getTotalPrice(cart);
+
+		// printing total price
+		System.out.println("Total: $" + String.format("%.02f", totalPrice));
 	}
 }

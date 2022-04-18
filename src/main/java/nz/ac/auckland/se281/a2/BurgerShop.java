@@ -99,6 +99,7 @@ public class BurgerShop {
 			CartHelperMethods.printEachItem(cart);
 
 			// printing the total
+			CartHelperMethods.printTotalPrice(cart);
 
 		}
 	}
