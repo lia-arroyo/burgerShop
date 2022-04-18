@@ -1,14 +1,23 @@
+// declaring package
 package nz.ac.auckland.se281.a2;
 
-import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
-import nz.ac.auckland.se281.a2.cli.MessagesCLI;
+// imports
+import java.util.ArrayList;
 
+import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
+
+// class declaration
 public class BurgerShop {
 
+	// instance fields
+	private ArrayList<Item> cart = new ArrayList<Item>(); // keeps track of all items ordered
+
+	// constructors
 	public BurgerShop() {
 
 	}
 
+	// methods
 	/**
 	 * Add a burger in the cart
 	 * 
