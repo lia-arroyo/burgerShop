@@ -5,6 +5,7 @@ package nz.ac.auckland.se281.a2;
 import java.util.ArrayList;
 
 import nz.ac.auckland.se281.a2.cli.Menu.SIZE;
+import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 // class declaration
 public class BurgerShop {
@@ -67,6 +68,11 @@ public class BurgerShop {
 	 */
 	public void showCart() {
 		// TODO TASK1
+
+		// checking the cart is empty
+		if (this.cart.size() == 0) {
+			MessagesCLI.CART_EMPTY.printMessage();
+		}
 	}
 
 	/**
