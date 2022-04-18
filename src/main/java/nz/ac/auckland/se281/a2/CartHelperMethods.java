@@ -1,7 +1,10 @@
 // declaring package
 package nz.ac.auckland.se281.a2;
 
+// imports
 import java.util.ArrayList;
+
+import nz.ac.auckland.se281.a2.cli.MessagesCLI;
 
 // This class will contain all the helper methods for printing cart
 public abstract class CartHelperMethods {
@@ -44,6 +47,16 @@ public abstract class CartHelperMethods {
 			Item item = cart.get(i);
 
 			total += item.getPrice();
+		}
+
+		// checking if cart total is eligible for discount
+		if (total >= 100.00) {
+
+			// informs user that they're eligible
+			MessagesCLI.DISCOUNT.printMessage();
+
+			// applying discount
+			total *= 0.75;
 		}
 
 		return total;
