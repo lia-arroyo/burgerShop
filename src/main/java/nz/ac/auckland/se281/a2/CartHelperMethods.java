@@ -106,6 +106,77 @@ public abstract class CartHelperMethods {
 			}
 		}
 
+		// only returns true if a burger, a snack and drink of the same size is present.
 		return isBurger && sameSize;
+	}
+
+	// calculates estimated waiting time in seconds
+	public static int waitingTime(ArrayList<Item> cart) {
+
+		// initialising counter
+		int seconds = 0;
+
+		// booleans to check that the first of each type has been counted
+		boolean firstBurger = false;
+		boolean firstSnack = false;
+		boolean firstDrink = false;
+
+		// iterating through cart
+		for (Item item : cart) {
+
+			// checking for item's type
+			if (item instanceof Burger) {
+				if (!firstBurger) { // if it's the first burger
+					seconds += 300;
+					firstBurger = true;
+				} else {
+					seconds += 60;
+				}
+
+			} else if (item instanceof Snack) {
+				if (!firstSnack) { // if it's the first snack
+					seconds += 180;
+					firstSnack = true;
+				} else {
+					seconds += 30;
+				}
+
+			} else if (item instanceof Drink) {
+				if (!firstDrink) { // if it's the first drink
+					seconds += 45;
+					firstDrink = true;
+				} else {
+					seconds += 15;
+				}
+			} else { // if item is a combo
+
+				// 1 burger
+				if (!firstBurger) { // if it's the first burger
+					seconds += 300;
+					firstBurger = true;
+				} else {
+					seconds += 60;
+				}
+
+				// 1 snack
+				if (!firstSnack) { // if it's the first snack
+					seconds += 180;
+					firstSnack = true;
+				} else {
+					seconds += 30;
+				}
+
+				// 1 drink
+				if (!firstDrink) { // if it's the first drink
+					seconds += 45;
+					firstDrink = true;
+				} else {
+					seconds += 15;
+				}
+			}
+		}
+
+		return seconds;
+
 	}
 }

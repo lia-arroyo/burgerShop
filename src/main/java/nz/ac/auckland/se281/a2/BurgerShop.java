@@ -189,6 +189,24 @@ public class BurgerShop {
 
 		} else { // if order doesn't contain potential missed combos
 
+			// print cart
+			showCart();
+
+			// getting total waiting time in seconds.
+			int totalSeconds = CartHelperMethods.waitingTime(cart);
+
+			// converting to hours, mins, and seconds.
+			// code adapted from https://stackoverflow.com/a/6118983
+			int hours = totalSeconds / 3600;
+			int mins = (totalSeconds % 3600) / 60;
+			int seconds = totalSeconds % 60;
+
+			// printing order confirmed and estimated waiting time
+			System.out.println(MessagesCLI.ESTIMATE_WAITING_TIME.getMessage() + hours + " hours " + mins + " minutes "
+					+ seconds + " seconds");
+
+			// Emptying cart
+			clearCart();
 		}
 	}
 }
