@@ -35,6 +35,7 @@ public abstract class CartHelperMethods {
 		}
 	}
 
+	// Calculates the total price of a cart
 	public static float getTotalPrice(ArrayList<Item> cart) {
 
 		// initialising counter for current total
@@ -62,6 +63,7 @@ public abstract class CartHelperMethods {
 		return total;
 	}
 
+	// Prints the total price of a cart
 	public static void printTotalPrice(ArrayList<Item> cart) {
 
 		// getting total price for order
@@ -69,5 +71,41 @@ public abstract class CartHelperMethods {
 
 		// printing total price
 		System.out.println("Total: $" + String.format("%.02f", totalPrice));
+	}
+
+	// Checking if a potential combo is available but not taken up
+	public static boolean potentialCombo(ArrayList<Item> cart) {
+
+		// boolean for if there is at least a burger
+		boolean isBurger = false;
+
+		// boolean for if there is a snack and drink of same size
+		boolean sameSize = false;
+
+		// iterating through each item in the cart
+		for (Item item : cart) {
+
+			// checking there is at least one burger
+			if (item instanceof Burger) {
+
+				isBurger = true;
+
+			} else if (item instanceof Snack) {
+
+				// downcasting to snack
+				Snack snack = (Snack) item;
+
+				// iterate through cart again to compare to current snack
+				for (Item otherItem : cart) {
+
+					// compares snack against every other drink, and checking for same size
+					if (otherItem instanceof Drink && (((Drink) otherItem).getSize() == snack.getSize())) {
+						sameSize = true;
+					}
+				}
+			}
+		}
+
+		return isBurger && sameSize;
 	}
 }

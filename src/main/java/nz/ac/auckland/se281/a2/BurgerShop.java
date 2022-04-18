@@ -89,7 +89,7 @@ public class BurgerShop {
 		// TODO TASK1
 
 		// checking the cart is empty
-		if (cart.size() == 0) {
+		if (cart.isEmpty()) {
 
 			MessagesCLI.CART_EMPTY.printMessage();
 
@@ -176,5 +176,19 @@ public class BurgerShop {
 	 */
 	public void confirmOrder() {
 		// TODO TASK4
+
+		// printing error if cart is empty
+		if (cart.isEmpty()) {
+
+			MessagesCLI.ORDER_INVALID_CART_EMPTY.printMessage();
+
+		} else if (CartHelperMethods.potentialCombo(cart)) {
+
+			// prints warning for potential missed combos
+			MessagesCLI.MISSED_COMBO.printMessage();
+
+		} else { // if order doesn't contain potential missed combos
+
+		}
 	}
 }
