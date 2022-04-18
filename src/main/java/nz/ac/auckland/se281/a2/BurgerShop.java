@@ -122,6 +122,22 @@ public class BurgerShop {
 	public void addCombo(String nameBurger, float priceBurger, String nameSnack, float priceSnack, String nameDrink,
 			float priceDrink, SIZE size) {
 		// TODO TASK2
+
+		// creating new Burger instance
+		Burger comboBurger = new Burger(nameBurger, priceBurger);
+
+		// creating new Snack instance
+		Snack comboSnack = new Snack(nameSnack, priceSnack, size);
+
+		// creating new Drink instance
+		Drink comboDrink = new Drink(nameDrink, priceDrink, size);
+
+		// creating a new Combo instance with the above
+		Combo combo = new Combo(comboBurger, comboSnack, comboDrink);
+
+		// adding Combo instance to our cart
+		this.cart.add(combo);
+
 	}
 
 	/**
