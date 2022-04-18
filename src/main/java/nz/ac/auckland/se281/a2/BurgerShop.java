@@ -95,25 +95,10 @@ public class BurgerShop {
 
 		} else {
 
-			// iterating through and printing each item in cart
-			for (int i = 0; i < cart.size(); i++) {
+			// printing each item in cart
+			CartHelperMethods.printEachItem(cart);
 
-				// getting each item from cart
-				Item item = cart.get(i);
-
-				// printing cart ID i, and name
-				System.out.print(i + " - " + item.getName());
-
-				// checks if item is a snack or drink
-				if (item instanceof Extras) {
-					// downcasting item to Extras
-					Extras downcastedItem = (Extras) item;
-					System.out.print(" (" + downcastedItem.getSize() + ")");
-				}
-
-				// prints price
-				System.out.println(": $" + String.format("%.02f", item.getPrice()));
-			}
+			// printing the total
 
 		}
 	}
