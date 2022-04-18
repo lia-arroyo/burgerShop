@@ -27,6 +27,12 @@ public class BurgerShop {
 	 */
 	public void addBurger(String name, float price) {
 		// TODO TASK1
+
+		// creating a new Burger instance
+		Burger burger = new Burger(name, price);
+
+		// adding burger instance to cart
+		this.cart.add(burger);
 	}
 
 	/**
@@ -70,8 +76,19 @@ public class BurgerShop {
 		// TODO TASK1
 
 		// checking the cart is empty
-		if (this.cart.size() == 0) {
+		if (cart.size() == 0) {
+
 			MessagesCLI.CART_EMPTY.printMessage();
+
+		} else {
+
+			// iterating through and printing each item in cart
+			for (int i = 0; i < cart.size(); i++) {
+
+				Item item = cart.get(i);
+				System.out.println(i + " - " + item.getName() + ": $" + String.format("%.02f", item.getPrice()));
+			}
+
 		}
 	}
 
