@@ -1,7 +1,7 @@
 // declaring package
 package nz.ac.auckland.se281.a2;
 
-// class declaration
+// class declaration. Item refers to anything that can be ordered and added to cart
 public abstract class Item {
 
 	// instance fields
@@ -14,17 +14,13 @@ public abstract class Item {
 		this.price = price;
 	}
 
-	// getter and setter methods for current fields
+	// getter methods for current fields
 	public String getName() {
 		return name;
 	}
 
 	public float getPrice() {
 		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
 	}
 
 }
