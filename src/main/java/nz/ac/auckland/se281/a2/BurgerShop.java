@@ -47,6 +47,12 @@ public class BurgerShop {
 	 */
 	public void addSnack(String name, float price, SIZE size) {
 		// TODO TASK1
+
+		// creating a new Snack instance
+		Snack snack = new Snack(name, price, size);
+
+		// adding snack to cart
+		this.cart.add(snack);
 	}
 
 	/**
@@ -64,6 +70,13 @@ public class BurgerShop {
 	 */
 	public void addDrink(String name, float price, SIZE size) {
 		// TODO TASK1
+
+		// creating a new Drink instance
+		Drink drink = new Drink(name, price, size);
+
+		// adding drink to cart
+		this.cart.add(drink);
+
 	}
 
 	/**
@@ -85,8 +98,21 @@ public class BurgerShop {
 			// iterating through and printing each item in cart
 			for (int i = 0; i < cart.size(); i++) {
 
+				// getting each item from cart
 				Item item = cart.get(i);
-				System.out.println(i + " - " + item.getName() + ": $" + String.format("%.02f", item.getPrice()));
+
+				// printing cart ID i, and name
+				System.out.print(i + " - " + item.getName());
+
+				// checks if item is a snack or drink
+				if (item instanceof Extras) {
+					// downcasting item to Extras
+					Extras downcastedItem = (Extras) item;
+					System.out.print(" (" + downcastedItem.getSize() + ")");
+				}
+
+				// prints price
+				System.out.println(": $" + String.format("%.02f", item.getPrice()));
 			}
 
 		}
