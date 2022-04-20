@@ -182,7 +182,7 @@ public class BurgerShop {
 
 			MessagesCLI.ORDER_INVALID_CART_EMPTY.printMessage();
 
-		} else if (CartHelperMethods.potentialCombo(cart)) {
+		} else if (CartHelperMethods.checkPotentialCombo(cart)) {
 
 			// prints warning for potential missed combos
 			MessagesCLI.MISSED_COMBO.printMessage();

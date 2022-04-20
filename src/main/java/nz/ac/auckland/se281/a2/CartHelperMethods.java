@@ -74,7 +74,7 @@ public abstract class CartHelperMethods {
 	}
 
 	// Checking if a potential combo is available but not taken up
-	public static boolean potentialCombo(ArrayList<Item> cart) {
+	public static boolean checkPotentialCombo(ArrayList<Item> cart) {
 
 		// boolean for if there is at least a burger
 		boolean isBurger = false;
